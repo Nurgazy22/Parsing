@@ -285,76 +285,117 @@ sorted_dict = {}
 
 #pip3 install -r requirments.txt #(внутри requirments есть requestsб bs4)
 
+# import requests
+# from bs4 import BeautifulSoup
+# import csv
+
+# def write_to_csv(data):
+#     with open('cars.csv', 'a') as file:
+#         writer = csv.writer(file)
+#         writer.writerow([data['title'], data['price'], data['img']])
+
+
+# def get_html(url):
+#     response = requests.get(url)
+#     return response.text
+
+# def get_total_pages(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     page_list = soup.find('div', class_='pages fl').find_all('a')
+#     last_page = page_list[-2].text
+#     return last_page
+
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     cars = soup.find("div", class_="catalog-list").find_all("a", class_="catalog-list-item")
+#     # print(cars)
+#     for car in cars:
+#         try:
+#             title = car.find('span', class_="catalog-item-caption").text.strip()
+#         except:
+#             title = ''
+
+#         try:
+#             img = car.find('img', 'catalog-item-cover-img').get('src')
+#         except:
+#             img=''
+
+#         try:
+#             price = car.find("span", class_="catalog-item-price").text
+#         except:
+#             price = ''
+#         data = {'title':title, 
+#                 'price':price,
+#                 'img':img
+#         }
+#         write_to_csv(data)
+
+# def main():
+#     url_ = 'https://cars.kg/offers'
+#     html = get_html(url_)
+#     # get_data(html)
+#     number = int(get_total_pages(html))
+#     i =1
+#     while i<= number:
+#         print(i)
+    
+#         url =f'https://cars.kg/offers/{i}'
+#         html = get_html(url)
+#         number = int(get_total_pages(html))
+#         if not BeautifulSoup(html, 'lxml').find('div', class_="catalog-list"):
+#             break
+
+#         get_data(html)
+#         i += 1
+    
+
+
+# with open('cars.csv', 'w') as file:
+#     writer = csv.writer(file)
+#     writer.writerow(['title', 'price','img'])
+    
+
+# main()
+
+
+#task parsing
+# html = requests.get('https://enter.kg/').text
+# soup = BeautifulSoup(html, 'lxml')
+# category_list = soup.find('ul', class_="VMmenu")
+# print(category_list)
+
+# def find_category(categories, keyword):
+#     return categories.find(keyword)
+# <ul class="VMmenu" id="VMmenu47_07796"> <li class="VmClose"><div> <a href="/computers">Ноутбуки, Ультрабуки, Гот. решения (2119)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown87"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown87" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/computers/gotovye-resheniya-asus-3_bishkek">Готовые решения ASUS(3)</a></div></li> <li class="VmClose"> </li><li><div><a href="/computers/gotovye-resheniya_bishkek">Готовые решения (18)</a></div></li> <li class="VmClose"> </li><li><div><a href="/computers/noutbuki_bishkek">Ноутбуки (2054)</a></div></li> <li class="VmClose"> </li><li><div><a href="/computers/ultrabuki_bishkek">Ультрабуки (44)</a></div></li> <li class="VmClose"> </li><li><div><a href="/computers/planshetnye-pk_bishkek">Планшетные ПК</a></div></li> <li class="VmClose"> </li><li><div><a href="/computers/elektronnye-knigi_bishkek">Электронные книги (3)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/monitory_bishkek">Мониторы (77)</a> </div></li> <li class="VmClose"><div> <a href="/processory_bishkek">Процессоры (116)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown5"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown5" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/processory_bishkek/processory-amd_bishkek">AMD (14)</a></div></li> <li class="VmClose"> </li><li><div><a href="/processory_bishkek/intel-i3-i5-i7_bishkek">Intel i3, i5, i7, i9 (84)</a></div></li> <li class="VmClose"> </li><li><div><a href="/processory_bishkek/intel-pentium-dual-core_bishkek">INTEL Pentium Dual Core (14)</a></div></li> <li class="VmClose"> </li><li><div><a href="/processory_bishkek/intel-celeron_bishkek">Intel Celeron (4)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/materinskie-platy_bishkek">Материнские платы (75)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown65"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown65" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/materinskie-platy_bishkek/socket-1700_bishkek">socket LGA 1700 (12th Gen) (30)</a></div></li> <li class="VmClose"> </li><li><div><a href="/materinskie-platy_bishkek/socket-1151-v2-8th-gen">socket 1151 V2 (8th &amp; 9th Gen) (18)</a></div></li> <li class="VmClose"> </li><li><div><a href="/materinskie-platy_bishkek/socket-1151_bishkek">socket 1151 (6th &amp; 7th Gen) (7)</a></div></li> <li class="VmClose"> </li><li><div><a href="/materinskie-platy_bishkek/socket-1200_bishkek">socket LGA 1200 (10th &amp; 11th Gen) (18)</a></div></li> <li class="VmClose"> </li><li><div><a href="/materinskie-platy_bishkek/socket-amd">AMD (2)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/operativnaya-pamyat_bishkek">Оперативная память (143)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown66"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown66" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/operativnaya-pamyat_bishkek/ddr-4_bishkek">DDR 4 (112)</a></div></li> <li class="VmClose"> </li><li><div><a href="/operativnaya-pamyat_bishkek/ddr-1_bishkek">DDR 5 (20)</a></div></li> <li class="VmClose"> </li><li><div><a href="/operativnaya-pamyat_bishkek/ddr-3_bishkek">DDR 3 (11)</a></div></li> <li class="VmClose"> </li><li><div><a href="/operativnaya-pamyat_bishkek/ddr-2_bishkek">DDR 2</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/vnutrennie-zhestkie-diski_bishkek">Внутренние жесткие и SSD диски (242)</a> </div></li> <li class="VmClose"><div> <a href="/korpusa_bishkek">Корпуса для ПК (80)</a> </div></li> <li class="VmClose"><div> <a href="/bloki-pitaniya-dlya-pk_bishkek">Блоки питания для ПК (107)</a> </div></li> <li class="VmClose"><div> <a href="/videokarty_bishkek">Видеокарты (70)</a> </div></li> <li class="VmClose"><div> <a href="/diskovody_opticheskie-privody_bishkek">Оптические приводы (4)</a> </div></li> <li class="VmClose"><div> <a href="/sistemy-ohlazhdeniya_bishkek">Системы охлаждения (125)</a> </div></li> <li class="VmClose"><div> <a href="/akustika_kolonki_bishkek">Акустика (колонки) (63)</a> </div></li> <li class="VmClose"><div> <a href="/klaviatury-i-myshki_bishkek">Клавиатуры и мышки (409)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown75"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown75" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/klaviatury-i-myshki_bishkek/myshki_bishkek">Мышки (225)</a></div></li> <li class="VmClose"> </li><li><div><a href="/klaviatury-i-myshki_bishkek/klaviatury_bishkek">Клавиатуры (105)</a></div></li> <li class="VmClose"> </li><li><div><a href="/klaviatury-i-myshki_bishkek/klaviatura-myshka_bishkek">Клавиатура+мышка (30)</a></div></li> <li class="VmClose"> </li><li><div><a href="/klaviatury-i-myshki_bishkek/kovriki-dlya-myshek_bishkek">Коврики для мышек (49)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/printery-skanery-mfu_bishkek">Принтеры, Сканеры, МФУ (41)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown82"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown82" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/printery-skanery-mfu_bishkek/lazernye-printery_bishkek">Лазерные Принтеры (12)</a></div></li> <li class="VmClose"> </li><li><div><a href="/printery-skanery-mfu_bishkek/mfu_bishkek">МФУ (25)</a></div></li> <li class="VmClose"> </li><li><div><a href="/printery-skanery-mfu_bishkek/struynye-printery_bishkek">Струйные Принтеры (1)</a></div></li> <li class="VmClose"> </li><li><div><a href="/printery-skanery-mfu_bishkek/skanery_bishkek">Сканеры (1)</a></div></li> <li class="VmClose"> </li><li><div><a href="/printery-skanery-mfu_bishkek/matrichnye-printery_bishkek">Матричные Принтеры (2)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/tv">Телевизоры и все для них (119)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown310"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown310" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/tv/televizory_bishkek">Телевизоры (42)</a></div></li> <li class="VmClose"> </li><li><div><a href="/tv/krepleniya-dlya-televizorov_bishkek">Крепления для TV/монитора (77)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/sotovye_telefony_bishkek">Мобильные телефоны, смартфоны (21)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown303"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown303" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/sotovye_telefony_bishkek/vse-dlya-smartfonov_bishkek">Все для смартфонов (21)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/vse-dlya-noutbukov_bishkek">Все для ноутбуков (271)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown276"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown276" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/sumki-dlya-noutbukov_bishkek">Сумки и рюкзаки для ноутбуков (58)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/nakleyki-dlya-klaviatury_bishkek">Наклейки для клавиатуры (4)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/podstavki-s-ohlazhdeniem_bishkek">Подставки с охлаждением (12)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/operativnaya-pamyat-dlya-noutbukov_bishkek">Оперативная память для ноутбуков (65)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/hdd-dlya-noutbukov_bishkek">HDD для ноутбуков (27)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/akkumulyatory-dlya-noutbukov_bishkek">Аккумуляторы для ноутбуков (25)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-noutbukov_bishkek/bloki-pitaniya-dlya-noutbukov_bishkek">Блоки питания для ноутбуков (80)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/vse-dlya-printerov_bishkek">Все для принтеров (416)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown287"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown287" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/vse-dlya-printerov_bishkek/donornye-sistemy_bishkek">Донорные системы</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-printerov_bishkek/kartridzhi_bishkek">Картриджи (185)</a></div></li> <li class="VmClose"> </li><li><div><a href="/vse-dlya-printerov_bishkek/rashodnye-materialy_bishkek">Расходные материалы (231)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/vneshnie-zhestkie-diski_bishkek">Внешние жесткие диски (44)</a> </div></li> <li class="VmClose"><div> <a href="/fleshki_bishkek">Флеш-карты USB (флешки) (98)</a> </div></li> <li class="VmClose"><div> <a href="/sd-microsd-card-reader_bishkek">SD, MicroSD, Card Reader (29)</a> </div></li> <li class="VmClose"><div> <a href="/web-kamery_bishkek">WEB камеры (22)</a> </div></li> <li class="VmClose"><div> <a href="/graficheskie-planshety_bishkek">Графические планшеты (7)</a> </div></li> <li class="VmClose"><div> <a href="/naushniki_bishkek">Наушники (169)</a> </div></li> <li class="VmClose"><div> <a href="/programnoe-obespechenie_bishkek">Программное обеспечение (21)</a> </div></li> <li class="VmClose"><div> <a href="/igrovye-ustroystva_bishkek">Игровые устройства (2)</a> </div></li> <li class="VmClose"><div> <a href="/setevoe-oborudovanie_bishkek">Сетевое оборудование (310)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown90"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown90" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/setevoe-oborudovanie_bishkek/wifi_routery_adaptery_bishkek">WiFi роутеры, адаптеры (168)</a></div></li> <li class="VmClose"> </li><li><div><a href="/setevoe-oborudovanie_bishkek/provodnoe-oborudovanie_bishkek">Проводное Оборудование (141)</a></div></li> <li class="VmClose"> </li><li><div><a href="/setevoe-oborudovanie_bishkek/3g-4g-modemy-routery-sot-oper_bishkek">3G 4G модемы (+роутеры) Сот.Опер (1)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/proektory-i-ekrany_bishkek">Проекторы и экраны (15)</a> </div></li> <li class="VmClose"><div> <a href="/telefony-faksy_bishkek">Телефоны, Факсы</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown39"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown39" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/telefony-faksy_bishkek/faksy_bishkek">Факсы</a></div></li> <li class="VmClose"> </li><li><div><a href="/telefony-faksy_bishkek/domashnie_telefony_bishkek">Телефоны</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/perehodniki-shnury-konektory_bishkek">Переходники, шнуры, коннекторы (393)</a> </div></li> <li class="VmClose"><div> <a href="/sistemy-zaschity-pitaniya_bishkek">Системы защиты питания (164)</a> <span class="VmArrowdown"> <svg class="svg" width="10" height="10"> <symbol id="s-crown79"> <polygon points="0,0,6,5,0,10,2,5" fill="white" stroke="orange" stroke-width="0"></polygon> </symbol> <use xlink:href="#s-crown79" x="0" y="0"></use> </svg> </span> </div><ul class="menu" style="display: none;"> <li class="VmClose"> </li><li><div><a href="/sistemy-zaschity-pitaniya_bishkek/аккумуляторы-для-ups">Аккумуляторы для UPS (43)</a></div></li> <li class="VmClose"> </li><li><div><a href="/sistemy-zaschity-pitaniya_bishkek/setevye-filtry_bishkek">Сетевые фильтры (17)</a></div></li> </ul> </li> <li class="VmClose"><div> <a href="/oborudovnie-dlya-ofisa_bishkek">Оборудование для офиса (15)</a> </div></li> <li class="VmClose"><div> <a href="/chistyaschie-sr-va-dlya-tehniki_bishkek">Чистящие ср-ва для техники (9)</a> </div></li> <li class="VmClose"><div> <a href="/usb-haby_bishkek">USB хабы (3)</a> </div></li> <li class="VmClose"><div> <a href="/videoregistratory-dlya-avto_bishkek">Видеорегистраторы для авто (11)</a> </div></li> <li class="VmClose"><div> <a href="/servernoe-oborudovanie_bishkek">Серверное оборудование (135)</a> </div></li> <li class="VmClose"><div> <a href="/instument">Инструменты (68)</a> </div></li> <li class="VmClose"><div> <a href="/zvukovye-karty_bishkek">Звуковые карты (5)</a> </div></li> </ul>
+# print(find_category(category_list, 'Ноутбуки'))
+
+
+
+
+"""Спарсить vesti.kg только названия новостей(title) и записать результат в csv файл
+"""
 import requests
 from bs4 import BeautifulSoup
 import csv
 
-def write_to_csv(data):
-    with open('cars.csv', 'a') as file:
+html = requests.get("https://vesti.kg/").text
+soup = BeautifulSoup(html, 'lxml')
+for i in soup.find_all('h2'):
+    temp = i.find('a').text.strip()
+    # print(i.find('a').text.strip())
+
+    with open('title.csv','a') as file:
         writer = csv.writer(file)
-        writer.writerow([data['title'], data['price'], data['img']])
+        writer.writerow([temp])
+        x = str(1)
+        
 
+# for i in soup.find_all('h2'):
+   
+#    
 
-def get_html(url):
-    response = requests.get(url)
-    return response.text
-
-def get_total_pages(html):
-    soup = BeautifulSoup(html, 'lxml')
-    page_list = soup.find('div', class_='pages fl').find_all('a')
-    last_page = page_list[-2].text
-    return last_page
-
-def get_data(html):
-    soup = BeautifulSoup(html, "lxml")
-    cars = soup.find("div", class_="catalog-list").find_all("a", class_="catalog-list-item")
-    # print(cars)
-    for car in cars:
-        try:
-            title = car.find('span', class_="catalog-item-caption").text.strip()
-        except:
-            title = ''
-
-        try:
-            img = car.find('img', 'catalog-item-cover-img').get('src')
-        except:
-            img=''
-
-        try:
-            price = car.find("span", class_="catalog-item-price").text
-        except:
-            price = ''
-        data = {'title':title, 
-                'price':price,
-                'img':img
-        }
-        write_to_csv(data)
-
-def main():
-    url_ = 'https://cars.kg/offers'
-    html = get_html(url_)
-    # get_data(html)
-    number = int(get_total_pages(html))
-    i =1
-    while i<= number:
-        print(i)
-    
-        url =f'https://cars.kg/offers/{i}'
-        html = get_html(url)
-        number = int(get_total_pages(html))
-        if not BeautifulSoup(html, 'lxml').find('div', class_="catalog-list"):
-            break
-
-        get_data(html)
-        i += 1
-    
-
-
-with open('cars.csv', 'w') as file:
-    writer = csv.writer(file)
-    writer.writerow(['title', 'price','img'])
-    
-
-main()
-
+# print(write)   
+# ('a').text.strip())
+        
+        
 
